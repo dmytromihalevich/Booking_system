@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h2>Our rooms</h2>
+
+    <ul class="list-group">
+        {% for room in room_list %}
+        <li class="list-group-item">
+            <strong>{{ room.name }}</strong> — {{ room.type_room }} - {{ room_price }}
+        </li>
+        {% empty %}
+        <li class="list-group-item"> no rooms </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
