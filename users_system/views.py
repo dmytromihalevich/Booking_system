@@ -16,7 +16,7 @@ def register(request):
 
     return render(request,'users_system/login.html', context={"form":form})
 
-def login(request):
+def login_page(request):
 
     form = AuthenticationForm()
     if request.method == 'POST':
