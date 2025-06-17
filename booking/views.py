@@ -7,7 +7,7 @@ def main_page(request):
     rooms = Room.objects.all()
 
     context = {
-        "data":"hi from django"
+        "data":"hi from django",
         'room_list': rooms
     }
 
