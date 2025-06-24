@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <h2>Our rooms</h2>
-
-    <ul class="list-group">
-        {% for room in room_list %}
+<ul class="list-group">
+    {% for room in room_list %}
         <li class="list-group-item">
-            <strong>{{ room.name }}</strong> — {{ room.type_room }} - {{ room_price }}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ room.picture.url }}" class="card-img-top" alt="Зображення кімнати">
+                <div class="card-body">
+                    <h5 class="card-title">Room {{ room.name }}</h5>
+                    <p class="card-text">{{ room.price }} грн</p>
+                    <a href="{% url 'booking_page' room.id %}" class="btn btn-primary">Забронювати</a>
+                </div>
+            </div>
         </li>
-        {% empty %}
-        <li class="list-group-item"> no rooms </li>
-        {% endfor %}
-    </ul>
-
-{% endblock content %}
+    {% empty %}
+        <li class="list-group-item">Немає кімнат.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

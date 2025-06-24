@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 # Create your views here.
@@ -29,3 +29,9 @@ def login_page(request):
 
 
     return render(request,'users_system/login.html', context={"form":form})
+
+def logout_page(request):
+    if request.user.is_authenticated:
+        logout(request)
+
+    return redirect('login')
